@@ -33,9 +33,16 @@ export class ProductService {
     // Need to build URL based on category id
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
 
-    return this.getProducts(searchUrl)
-
+    return this.getProducts(searchUrl);
   }
+
+  getProduct(theProductId: number): Observable<Product> {
+    // Need to build URL based on product Id
+    const productUrl = `${this.baseUrl}/${theProductId}`;
+    
+    return this.httpClient.get<Product>(productUrl);
+  }
+
 
   private getProducts(searchUrl: string): Observable<Product[]> {
     return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
