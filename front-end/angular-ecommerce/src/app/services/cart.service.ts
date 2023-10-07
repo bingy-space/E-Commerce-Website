@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class CartService {
 
-  cartItems: CartItem[] = [];
+  cartItems: any[] = [];
   totalPrice: Subject<number> = new Subject<number>();
   totalQuantity: Subject<number> = new Subject<number>();
 
@@ -21,12 +21,16 @@ export class CartService {
 
     if(this.cartItems.length > 0){
       // Find the item in the cart based on item id
-      for(let tempCartItem of this.cartItems){
-        if(tempCartItem.id === theCartItem.id){
-          existingCartItem = tempCartItem;
-          break;
-        }
-      }
+
+      // for(let tempCartItem of this.cartItems){
+      //   if(tempCartItem.id === theCartItem.id){
+      //     existingCartItem = tempCartItem;
+      //     break;
+      //   }
+      // }
+      // Same as above
+      existingCartItem = this.cartItems.find(tempCartItem => tempCartItem.id === theCartItem.id);
+
       // Check if we found it
       alreadyExistsInCart = (existingCartItem != undefined);
     }
