@@ -28,7 +28,8 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/@okta-signin-widget/dist/css/okta-sign-in.min.css"
             ]
           },
           "configurations": {
