@@ -10,5 +10,5 @@ import com.ecommerceproject.springbootecommerce.entity.Order;
 
 @RepositoryRestResource
 public interface OrderRepository extends JpaRepository<Order, Long>{
-	Page<Order> findByCustomerEmail(@Param("email") String email, Pageable pageable);
+	Page<Order> findByCustomerEmailOrderByDateCreatedDesc(@Param("email") String email, Pageable pageable);
 }
